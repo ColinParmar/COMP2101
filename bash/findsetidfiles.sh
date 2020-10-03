@@ -26,5 +26,5 @@ echo ""
 # sort/format whatever to display the list properly
 echo "Finding 12 largest files"
 echo "========================"
-find / -type f -exec ls -lh {} + | sort -rh -k 5 -s | head -12 | awk '{print $5 $3 $9}'
+find / -type f -exec ls -lh 2>/dev/null {} + | sort -rh -k 5 -s | head -12 | awk '{print $5 $3 $9}'
 echo""
