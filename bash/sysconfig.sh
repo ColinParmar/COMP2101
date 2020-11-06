@@ -27,7 +27,7 @@ echo " File not found. Error " 2>/dev/stderr
 exit 1
 }
 #This function displays help information if the user asks for it on the command line or gives us a bad command line
-function displayhelp {
+function cleanup {
 rm -f "/tmp/sysinfo.$$"
 rm -f "/tmp/memoryinfo.$$"
 rm -f "/tmp/businfo.$$"
