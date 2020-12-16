@@ -1,11 +1,11 @@
 "================System Hardware Description==================" 
-get-wmiobject -Class win32_ComputerSystem | Select Manufacturer,Model | Format-table
+get-wmiobject -Class win32_ComputerSystem | Select Manufacturer,Model | Format-List
 
 "================Info of Operating System===================="
-get-wmiobject -Class win32_operatingsystem | select Name,Version | Format-Table
+get-wmiobject -Class win32_operatingsystem | select Name,Version | Format-List
 
 "==================Processor Info======================"
-get-wmiobject -Class win32_processor | select Description,MaxClockSpeed,NumberOfCores,L1CacheSize,L2CacheSize,L3CacheSize
+get-wmiobject -Class win32_processor | select Description,MaxClockSpeed,NumberOfCores,L1CacheSize,L2CacheSize,L3CacheSize | Format-List
 
 
 "=====================Summary of the Installed RAM========================"
@@ -36,7 +36,7 @@ $diskdrives = Get-CIMInstance CIM_diskdrive
           new-object -typename psobject -property @{Manufacturer=$disk.Manufacturer 
                                                     Location=$partition.deviceid 
                                                     Drive=$logicaldisk.deviceid 
-                                                    ìSize(GB)î=$logicaldisk.size / 1gb -as [int]
+                                                    ‚ÄúSize(GB)‚Äù=$logicaldisk.size / 1gb -as [int]
                                                     Model=$disk.model
                                                     "FreeSpace(GB)"=$logicaldisk.freespace / 1gb -as [int] 
                                                     "PrecentageFree"=($logicaldisk.freespace / $logicaldisk.size) * 100 -as [int]
@@ -57,4 +57,4 @@ Select-Object -Property Index,
 Format-Table
 
 "========================Video Card Info=========================" 
-Get-WmiObject Win32_VideoController | Select Name, Description, VideoModeDescription
+Get-WmiObject Win32_VideoController | Select Name, Description, VideoModeDescription | Format-List
