@@ -1,0 +1,112 @@
+COMP 1099
+Assignment #1 version 2
+Solution
+January 2020
+
+#Function One
+
+def functionOne(stringOne,stringTwo,stringThree):
+  lengthStringOne = len(stringOne)
+  lengthStringTwo = len(stringTwo)
+  lengthStringThree = len(stringThree)
+  if(lengthStringOne > lengthStringTwo and lengthStringOne >lengthStringThree):
+    return stringOne
+  if (lengthStringTwo >lengthStringOne and lengthStringTwo > lengthStringThree):
+    return stringTwo
+  if (lengthStringThree > lengthStringOne and lengthStringThree > lengthStringTwo):
+    return stringThree
+  else:
+    return "there is no one string that is largest"
+#-----------------------------------------------------------------------------------
+
+#Test Script one
+print("please enter a string")
+userStringOne = input()
+print("please enter a second string")
+userStringTwo = input()
+print("please enter a third string")
+userStringThree = input()
+lengthUserStringOne = len(userStringOne)
+lengthUserStringTwo = len(userStringTwo)
+lengthUserStringThree = len(userStringThree)
+if (lengthUserStringOne == lengthUserStringTwo or lengthUserStringOne == lengthUserStringThree or lengthUserStringTwo == lengthUserStringThree):
+    flag = True
+    while(flag):
+      print("please enter a string")
+      userStringOne = input()
+      print("please enter a second string")
+      userStringTwo = input()
+      print("please enter a third string")
+      userStringThree = input()
+      lengthUserStringOne = len(userStringOne)
+      lengthUserStringTwo = len(userStringTwo)
+      lengthUserStringThree = len(userStringThree) 
+      if (lengthUserStringOne == lengthUserStringTwo or lengthUserStringOne == lengthUserStringThree or lengthUserStringTwo == lengthUserStringThree):
+        flag = True
+      else:
+        flag = False
+print("The longest of the three strings are: " +  functionOne(userStringOne,userStringTwo,userStringThree))
+      
+#--------------------------------------------------------------------------------------------------------------
+
+#Function Two
+
+import random
+def functionTwo(intOne,intTwo):
+  count = 0
+  for i in range (25):
+    firstRandomNumber = random.randint(0,(intOne*2))  
+    secondRandomNumber = random.randint(0,(intTwo*2)) 
+    print(firstRandomNumber, end = " ")
+    print(secondRandomNumber)
+    if (firstRandomNumber==intOne):
+      count = count + 1
+    if (secondRandomNumber == intTwo):
+      count = count +1
+  return count
+
+#-------------------------------------------------
+
+#Test script 2
+print("please provide an integer")
+userIntOne = int(input())
+print("please provide a second integer")
+userIntTwo = int(input())
+returnValue = functionTwo(userIntOne,userIntTwo)
+if (returnValue == 2):
+  print("Two matches - you win $100")      
+      
+#---------------------------------------------
+
+#Function Three
+
+def functionThree(intOne,stringOne):
+  lengthStringOne = len(stringOne)
+  for i in range(lengthStringOne,intOne-1,-1):
+    print(i)
+
+#Test Script3
+#--------------------------------------------
+print("Please enter an int")
+userInt = int(input())
+print("please enter a string")
+userString = input()
+print("here is your count that starts at a # equal to the length of your string and ends at the number you entered")
+functionThree(userInt,userString)  
+
+#test script 4
+#----------------------------------------------------------
+import sys
+print("Please enter the distance you traveled in KM")
+distance = int(input())
+print("Please enter the speed you were travelling")
+speed = int(input())
+try:
+  time = distance/speed
+  for i in range (100):
+    print("The time it took you to travel was: " + str(time) + " hours")
+except ZeroDivisionError:
+  print("ERROR")
+  sys.exit()    
+      
+
